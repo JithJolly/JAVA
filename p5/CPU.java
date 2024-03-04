@@ -1,14 +1,23 @@
 public class CPU
 {
    int price;
+   CPU (int price)
+   {
+     this.price=price;
+   }
+   public void display()
+   {
+      System.out.println("\nCPU info");
+      System.out.println("CPU price is:"+price);
+   }
    class Processor
    {
       int cores;
       String producer;
-      Processor(int noC,String Anu)
+      Processor(int cores,String producer)
       {
-          cores=noC;
-          producer=Anu;
+          this.cores=cores;
+          this.producer=producer;
       }
       void display()
       {
@@ -19,25 +28,27 @@ public class CPU
     }
     static class RAM
     {
-       int mem;
-       String manuf;
+       int memory;
+       String producer;
        RAM(int memory,String producer)
        {
-          mem=memory;
-          manuf=producer;
+          this.memory=memory;
+          this.producer=producer;
        }
        void display()
        {
           System.out.println("\n RAM info");
-          System.out.println("Memory="+mem+"GB");
-          System.out.println("Manufacturer="+manuf+"\n");
+          System.out.println("Memory="+memory+"GB");
+          System.out.println("Manufacturer="+producer+"\n");
        }
      }
      public static void main(String[] args)
      {
+         CPU cpuobj=new CPU(30000);
+         CPU.Processor obj3=cpuobj.new Processor(8,"Samsung");
          CPU.RAM obj1=new CPU.RAM(8,"Intel");
-         CPU obj2=new CPU();
-         CPU.Processor obj3=obj2.new Processor(8,"Samsung");
+         
+         cpuobj.display();
          obj1.display();
          obj3.display();
       }
